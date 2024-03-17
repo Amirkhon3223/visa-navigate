@@ -1,0 +1,10 @@
+.slider-container {
+  display: flex;
+  transition: all 0.5s ease;
+  overflow: hidden;
+}
+
+.slider-slide {
+  transition: all 0.5s ease;
+  flex: 1 0 0;
+}

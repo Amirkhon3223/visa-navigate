@@ -1,1 +1,18 @@
-<p>slider works!</p>
+<div class="flex overflow-hidden relative h-[500px] mx-auto">
+  <div class="slider-container" [style.width.%]="slides.length * 100">
+    <div class="slider-slide" *ngFor="let slider of getVisibleSlides(); let i = index" key="slider.id">
+      <div class="w-full p-4">
+        <img [src]="slider.image" alt="{{ slider.title }}" class="h-64 object-cover mb-4">
+        <div class="flex flex-col items-center mb-2">
+          <img [src]="slider.icon" alt="{{ slider.title }}" class="h-12 w-12 mx-auto">
+          <h3>{{ slider.title }}</h3>
+        </div>
+        <p>{{ slider.description }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="relative flex justify-between w-full">
+  <button class="absolute top-0 bottom-0 left-0 ml-2" (click)="onPrevSlide()">Previous</button>
+  <button class="absolute top-0 bottom-0 right-0 mr-2" (click)="onNextSlide()">Next</button>
+</div>
