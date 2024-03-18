@@ -1,15 +1,17 @@
 <div class="flex overflow-hidden relative h-[500px] mx-auto">
   <div class="slider-container" [style.width.%]="slides.length * 100">
-    <div class="slider-slide" *ngFor="let slider of getVisibleSlides(); let i = index" key="slider.id">
-      <div class="w-full p-4">
-        <img [src]="slider.image" alt="{{ slider.title }}" class="h-64 object-cover mb-4">
-        <div class="flex flex-col items-center mb-2">
-          <img [src]="slider.icon" alt="{{ slider.title }}" class="h-12 w-12 mx-auto">
-          <h3>{{ slider.title }}</h3>
+    <ng-container *ngIf="getVisibleSlides().length > 0">
+      <div class="slider-slide" *ngFor="let slider of getVisibleSlides(); let i = index">
+        <div class="w-full p-4">
+          <img [src]="slider.image" alt="{{ slider.title }}" class="h-64 object-cover mb-4">
+          <div class="flex flex-col items-center mb-2">
+            <img [src]="slider.icon" alt="{{ slider.title }}" class="h-12 w-12 mx-auto">
+            <h3>{{ slider.title }}</h3>
+          </div>
+          <p>{{ slider.description }}</p>
         </div>
-        <p>{{ slider.description }}</p>
       </div>
-    </div>
+    </ng-container>
   </div>
 </div>
 <div class="relative flex justify-between w-full">
